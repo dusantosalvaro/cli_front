@@ -3,6 +3,11 @@
 use ActiveRecord\ConnectionManager;
 use PDO;
 
+$bootstrapPath = __DIR__ . '/../config/database.php';
+if (file_exists($bootstrapPath)) {
+    require_once $bootstrapPath;
+}
+
 if (!class_exists(ConnectionManager::class)) {
     throw new RuntimeException('ActiveRecord\ConnectionManager not available. Configure PHP ActiveRecord before running this seeder.');
 }
